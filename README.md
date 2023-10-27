@@ -1,23 +1,22 @@
-# Evaluación de conocimientos de API REST
+# Configuración básica de Heroku y FastAPI
 
-## 1. Tickets a corregir
+## Lista de Archivos necesarios
 
-|no|Descripción|Terminado (S/N)|
+Archivos de configuración necesarios para ejecutar la API en Heroku
+
+|No.|Archivo|Descripción|
 |--|--|--|
-|1.|Utilizar el script contactos.sql para crear una tabla en sqlite3 de nombre contactos.db|s/n|
-|2.|Corregir el método para insetar un contacto nuevo|s/n|
-|3.|Corregir el método para mostrar tdoos los contactos|s/n|
-|4.|Corregir el método para consultar un contacto por email|s/n|
-|5.|Corregir el método para actualizar un contacto basado en su email|s/n|
-|6.|Corregir el método para borrar un contacto basado en su email|s/n|
+|1.|.gitignore|Archivos y directorios que no se suben al repositorio|
+|2.|requirements.txt|Librerias necesarias para ejecutar la api|
+|3.|runtime.txt|Versión de Python que se usara en Heroku|
+|4.|Procfile|Configuración de Heroku para ejecutar la api|
+|5.|main.py|Hola mundo en FastAPI|
+|6.|README.md|Documento de referencia|
 
-## 2. Evidencias
+## Run API
 
-|no|Descripción|Evidencia|
-|--|--|--|
-|1.|Utilizar el script contactos.sql para crear una tabla en sqlite3 de nombre contactos.db|![Base de datos](evidencias/evidencia1.png){width=100 height=100}|
-|2.|Corregir el método para insetar un contacto nuevo|![Insertar](evidencias/evidencia2.png){width=100 height=100}|
-|3.|Corregir el método para mostrar tdoos los contactos|![Todos los registros](evidencias/evidencia3.png){width=100 height=100}|
-|4.|Corregir el método para consultar un contacto por email![Buscar registro](evidencias/evidencia4.png){width=100 height=100}|
-|5.|Corregir el método para actualizar un contacto basado en su email|![Actualizar registro](evidencias/evidencia5.png){width=100 height=100}|
-|6.|Corregir el método para borrar un contacto basado en su email|![Borrar registro](evidencias/evidencia6.png){width=100 height=100}|
+Comando para ejecutar la API de forma local
+
+```bash
+gunicorn -k uvicorn.workers.UvicornWorker --bind 0.0.0.0:8000 main:app
+```
